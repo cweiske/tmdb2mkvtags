@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+<!DOCTYPE Tags SYSTEM "matroskatags.dtd">
+<Tags>
+ <Tag>
+  <Targets>
+   <TargetType>50</TargetType>
+  </Targets>
+  <Simple>
+   <Name>TITLE</Name>
+   <String>James Bond 007 - Diamantenfieber</String>
+   <TagLanguage>de</TagLanguage>
+  </Simple>
+  <Simple>
+   <Name>TITLE</Name>
+   <String>Diamonds Are Forever</String>
+   <TagLanguage>en</TagLanguage>
+  </Simple>
+  <Simple>
+   <Name>SUBTITLE</Name>
+   <String></String>
+   <TagLanguage>de</TagLanguage>
+  </Simple>
+  <Simple>
+   <Name>SYNOPSIS</Name>
+   <String>Große Mengen Diamanten verschwinden, ohne auf dem internationalen Markt wieder aufzutauchen. James Bond wird in einen Schmugglerring infiltriert, um der Sache nachzugehen. Die Spur führt nach Las Vegas und zu keinem Geringeren als Bonds Erzfeind Ernst Stavro Blofeld.</String>
+   <TagLanguage>de</TagLanguage>
+  </Simple>
+  <Simple>
+   <Name>DATE_RELEASED</Name>
+   <String>1971-12-13</String>
+  </Simple>
+  <Simple>
+   <Name>GENRE</Name>
+   <String>Abenteuer</String>
+   <TagLanguage>de</TagLanguage>
+  </Simple>
+  <Simple>
+   <Name>GENRE</Name>
+   <String>Action</String>
+   <TagLanguage>de</TagLanguage>
+  </Simple>
+  <Simple>
+   <Name>GENRE</Name>
+   <String>Thriller</String>
+   <TagLanguage>de</TagLanguage>
+  </Simple>
+  <Simple>
+   <Name>RATING</Name>
+   <String>3.2</String>
+  </Simple>
+  <Simple>
+   <Name>TMDB</Name>
+   <String>movie/681</String>
+  </Simple>
+  <Simple>
+   <Name>IMDB</Name>
+   <String>tt0066995</String>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Sean Connery</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>James Bond</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Jill St. John</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Tiffany Case</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Charles Gray</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Ernst Stavro Blofeld</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Lana Wood</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Plenty O'Toole</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Jimmy Dean</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Willard Whyte</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Bruce Cabot</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Albert R. Saxby</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Putter Smith</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Mr. Kidd</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Bruce Glover</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Mr. Wint</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Norman Burton</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Felix Leiter</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Joseph Fürst</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Prof. Dr. Metz</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Bernard Lee</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>M</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Desmond Llewelyn</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Q</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Leonard Barr</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Shady Tree</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Lois Maxwell</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Miss Moneypenny</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Margaret Lacey</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Mrs. Whistler</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Joe Robinson</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Peter Franks</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>David de Keyser</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Doctor</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Laurence Naismith</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Sir Donald Munger</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>David Bauer</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Mr. Slumber</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Marc Lawrence</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Slumber Inc. Attendant</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Sid Haig</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Slumber Inc. Attendant</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Lola Larson</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Bambi (uncredited)</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>ACTOR</Name>
+   <String>Trina Parks</String>
+   <Simple>
+    <Name>CHARACTER</Name>
+    <String>Thumper (uncredited)</String>
+   </Simple>
+  </Simple>
+  <Simple>
+   <Name>COMPOSER</Name>
+   <String>John Barry</String>
+  </Simple>
+  <Simple>
+   <Name>DIRECTOR</Name>
+   <String>Guy Hamilton</String>
+  </Simple>
+  <Simple>
+   <Name>WRITTEN_BY</Name>
+   <String>Ian Fleming</String>
+  </Simple>
+  <Simple>
+   <Name>WRITTEN_BY</Name>
+   <String>Tom Mankiewicz</String>
+  </Simple>
+  <Simple>
+   <Name>PRODUCER</Name>
+   <String>Albert R. Broccoli</String>
+  </Simple>
+  <Simple>
+   <Name>PRODUCER</Name>
+   <String>Harry Saltzman</String>
+  </Simple>
+  <Simple>
+   <Name>COMPOSER</Name>
+   <String>Monty Norman</String>
+  </Simple>
+  <Simple>
+   <Name>DIRECTOR_OF_PHOTOGRAPHY</Name>
+   <String>Ted Moore</String>
+  </Simple>
+  <Simple>
+   <Name>EDITED_BY</Name>
+   <String>Bert Bates</String>
+  </Simple>
+  <Simple>
+   <Name>WRITTEN_BY</Name>
+   <String>Richard Maibaum</String>
+  </Simple>
+  <Simple>
+   <Name>LEAD_PERFORMER</Name>
+   <String>Shirley Bassey</String>
+  </Simple>
+  <Simple>
+   <Name>PRODUCER</Name>
+   <String>Stanley Sopel</String>
+  </Simple>
+  <Simple>
+   <Name>EDITED_BY</Name>
+   <String>John W. Holmes</String>
+  </Simple>
+  <Simple>
+   <Name>ART_DIRECTOR</Name>
+   <String>Bill Kenney</String>
+  </Simple>
+  <Simple>
+   <Name>ART_DIRECTOR</Name>
+   <String>Jack Maxsted</String>
+  </Simple>
+  <Simple>
+   <Name>COSTUME_DESIGNER</Name>
+   <String>Donfeld</String>
+  </Simple>
+ </Tag>
+</Tags>
