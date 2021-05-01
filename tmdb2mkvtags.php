@@ -10,16 +10,16 @@
  * @author Christian Weiske <cweiske@cweiske.de>
  */
 if ($argc < 3) {
-    fwrite(STDERR, "Usage: tmdb2mkvtags.php LANGUAGE \"MOVIE TITLE\" [OUTFILE]\n");
+    fwrite(STDERR, "Usage: tmdb2mkvtags.php LANGUAGE \"MOVIE TITLE\" [OUTDIR]\n");
     exit(1);
 }
 
 $apiToken = null;
 $language = $argv[1];
 $title    = $argv[2];
-$outfile  = null;
+$outdir  = null;
 if ($argc == 4) {
-    $outfile = $argv[3];
+    $outdir = $argv[3];
 }
 
 $configFile = preg_replace('#.php$#', '', $argv[0]) . '.config.php';
@@ -93,25 +93,58 @@ if ($movies->total_results == 0) {
 $details = queryTmdb('3/movie/' . $movie->id . '?language=' . $language);
 $credits = queryTmdb('3/movie/' . $movie->id . '/credits?language=' . $language);
 
+$downloadImages = true;
 
 $xml = new MkvTagXMLWriter();
-if ($outfile === null) {
+if ($outdir === '-') {
     $xml->openMemory();
+    $downloadImages = false;
+    fwrite(STDERR, "Not downloading images\n");
 } else {
+    if ($outdir === null) {
+        $outdir = trim(str_replace('/', ' ', $movie->title));
+    }
+    $outdir = rtrim($outdir, '/') . '/';
+    if (is_file($outdir)) {
+        fwrite(STDERR, "Error: Output directory is a file\n");
+        exit(2);
+    }
+    if (!is_dir($outdir)) {
+        mkdir($outdir);
+    }
+    $outfile = $outdir . 'mkvtags.xml';
     $xml->openURI($outfile);
 }
+
 $xml->setIndent(true);
 $xml->startDocument("1.0");
 $xml->writeRaw("<!DOCTYPE Tags SYSTEM \"matroskatags.dtd\">\n");
+
 $xml->startElement("Tags");
+
+if ($details->belongs_to_collection) {
+    $xml->startComment();
+    $xml->text('Collection information');
+    $xml->endComment();
+
+    $xml->startElement("Tag");
+    $xml->targetType(70);
+    $xml->simple('TITLE', $details->belongs_to_collection->name, $language);
+    $xml->endElement();
+}
+
+
+$xml->startComment();
+$xml->text('Movie information');
+$xml->endComment();
+
 $xml->startElement("Tag");
 
 $xml->targetType(50);
 $xml->simple('TITLE', $movie->title, $language);
-if ($language != $movie->original_language) {
-    $xml->simple('TITLE', $movie->original_title, $movie->original_language);
+if ($details->tagline) {
+    $xml->simple('SUBTITLE', $details->tagline, $language);
 }
-$xml->simple('SUBTITLE', $details->tagline, $language);
 $xml->simple('SYNOPSIS', $movie->overview, $language);
 
 $xml->simple('DATE_RELEASED', $movie->release_date);
@@ -123,6 +156,16 @@ foreach ($details->genres as $genre) {
 $xml->simple('RATING', $movie->vote_average / 2);//0-10 on TMDB, 0-5 mkv
 $xml->simple('TMDB', 'movie/' . $movie->id);
 $xml->simple('IMDB', $details->imdb_id);
+
+if ($language != $movie->original_language) {
+    $xml->startElement('Simple');
+    $xml->startElement('Name');
+    $xml->text('ORIGINAL');
+    $xml->endElement();
+    $xml->simple('TITLE', $movie->original_title, $movie->original_language);
+    $xml->endElement();//Simple
+}
+
 
 foreach ($credits->cast as $actor) {
     $xml->actor($actor->name, $actor->character, $language);
@@ -153,18 +196,61 @@ $xml->endElement();//Tag
 $xml->endElement();//Tags
 $xml->endDocument();
 
-if ($outfile === null) {
+if ($outdir === null) {
     echo $xml->outputMemory();
 } else {
     $xml->flush();
 }
 
 
+if ($downloadImages) {
+    //we take the largest scaled image, not the original image
+    $tmdbConfig = queryTmdb('3/configuration');
+    foreach ($tmdbConfig->images as $key => $sizes) {
+        if (is_array($sizes)) {
+            foreach ($sizes as $sizeKey => $value) {
+                if ($value == 'original') {
+                    unset($tmdbConfig->images->$key[$sizeKey]);
+                }
+            }
+        }
+    }
+
+    if ($details->poster_path) {
+        $size = $tmdbConfig->images->poster_sizes[
+            array_key_last($tmdbConfig->images->poster_sizes)
+        ];
+        $url = $tmdbConfig->images->secure_base_url . $size . $details->poster_path;
+        $imagePath = $outdir
+            . 'cover.' . pathinfo($details->poster_path, PATHINFO_EXTENSION);
+        if (!file_exists($imagePath)) {
+            file_put_contents($imagePath, file_get_contents($url));
+        }
+    }
+
+    if ($details->backdrop_path) {
+        $size = $tmdbConfig->images->backdrop_sizes[
+            array_key_last($tmdbConfig->images->backdrop_sizes)
+        ];
+        $url = $tmdbConfig->images->secure_base_url . $size . $details->backdrop_path;
+        $imagePath = $outdir
+            . 'backdrop.' . pathinfo($details->poster_path, PATHINFO_EXTENSION);
+        if (!file_exists($imagePath)) {
+            file_put_contents($imagePath, file_get_contents($url));
+        }
+    }
+}
+
+
+if ($outdir !== '-') {
+    $fulldir = realpath($outdir);
+    fwrite(STDERR, "Files written into directory:\n$fulldir\n");
+}
+
+
+
 //var_dump($credits);
 //var_dump($movie, $details);
-
-
-//$tmdbConfig = queryTmdb('3/configuration');
 
 
 function queryTmdb($path)

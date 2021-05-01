@@ -2,7 +2,8 @@
 tmdb2mkvtags
 ============
 
-Generate a Matroska tags file from TMDb__ information.
+Generate a Matroska video tags file from TMDb__ information.
+Also downloads the cover (poster) and backdrop images.
 
 __ https://www.themoviedb.org/
 
@@ -13,14 +14,20 @@ Usage
 1. Copy ``tmdb2mkvtags.config.php.dist`` to ``tmdb2mkvtags.config.php`` and add your API token
 2. Run tmdb2mkvtags.php::
 
-     php tmdb2mkvtags.php de "James Bond Diamantenfieber" diamanten.xml
+     php tmdb2mkvtags.php de "James Bond Diamantenfieber"
+3. A directory with the movie title "James Bond 007 - Diamantenfieber" has been
+   created and contains the following files:
+
+   - ``mkvtags.xml``
+   - ``cover.jpg``
+   - ``backdrop.jpg``
 
 
 Example session
 ---------------
 ::
 
-    $ ./tmdb2mkvtags.php de "James Bond" casino.xml
+    $ ./tmdb2mkvtags.php de "James Bond"
     Found 69 movies
     [ 0] The James Bond Story
     [ 1] 30 Years of James Bond
@@ -70,5 +77,8 @@ Example session
     n: next page
 
     Your selection: 30
+    Files written into directory:
+    /home/cweiske/dev/tmdb2mkvtags/James Bond 007 - Casino Royale
 
-... and the file ``casino.xml`` is generated, ready to use with ``mkvmerge``.
+... and the directory ``James Bond 007 - Casino Royale`` is generated, with
+``mkvtags.xml`` ready to use with ``mkvmerge``.
