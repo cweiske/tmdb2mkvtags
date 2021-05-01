@@ -22,12 +22,24 @@ if ($argc == 4) {
     $outdir = $argv[3];
 }
 
-$configFile = preg_replace('#.php$#', '', $argv[0]) . '.config.php';
-if (file_exists($configFile)) {
-    require_once $configFile;
+
+$configFiles = [];
+$configFiles[] = preg_replace('#.php$#', '', $argv[0]) . '.config.php';
+if (isset($_SERVER['XDG_CONFIG_HOME'])) {
+    $configFiles[] = $_SERVER['XDG_CONFIG_HOME'] . '/tmdb2mkvtags.config.php';
+} else if (isset($_SERVER['HOME'])) {
+    $configFiles[] = $_SERVER['HOME'] . '/.config/tmdb2mkvtags.config.php';
+}
+$configFiles[] = '/etc/tmdb2mkvtags.config.php';
+foreach ($configFiles as $configFile) {
+    if (file_exists($configFile)) {
+        require_once $configFile;
+        break;
+    }
 }
 if ($apiToken === null) {
     fwrite(STDERR, "API token is not set\n");
+    fwrite(STDERR, "Configuration files tried:\n " . implode("\n ", $configFiles) . "\n");
     exit(2);
 }
 
