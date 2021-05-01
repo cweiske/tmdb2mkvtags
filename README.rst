@@ -12,6 +12,11 @@ Usage
 =====
 
 1. Copy ``tmdb2mkvtags.config.php.dist`` to ``tmdb2mkvtags.config.php`` and add your API token
+   Supported configuration file directories:
+
+   1. Same directory as ``tmdb2mkvtags.php``
+   2. ``$home/.config/`` (or ``XDG_CONFIG_HOME``)
+   3. ``/etc/``
 2. Run tmdb2mkvtags.php::
 
      php tmdb2mkvtags.php de "James Bond Diamantenfieber"
