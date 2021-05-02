@@ -3,11 +3,13 @@
 /**
  * Generate a Matroska tags file from TMDb information
  *
- * @link https://www.themoviedb.org/
- * @link https://www.matroska.org/technical/tagging.html
- * @link https://developers.themoviedb.org/3/
+ * PHP version 7
  *
- * @author Christian Weiske <cweiske@cweiske.de>
+ * @author  Christian Weiske <cweiske@cweiske.de>
+ * @license https://www.gnu.org/licenses/gpl-3.0.txt GPL-3.0-or-later
+ * @link    https://www.themoviedb.org/
+ * @link    https://www.matroska.org/technical/tagging.html
+ * @link    https://developers.themoviedb.org/3/
  */
 if ($argc < 3) {
     fwrite(STDERR, "Usage: tmdb2mkvtags.php LANGUAGE \"MOVIE TITLE\" [OUTDIR]\n");
