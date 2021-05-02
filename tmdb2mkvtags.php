@@ -35,13 +35,16 @@ if (isset($_SERVER['XDG_CONFIG_HOME'])) {
 $configFiles[] = '/etc/tmdb2mkvtags.config.php';
 foreach ($configFiles as $configFile) {
     if (file_exists($configFile)) {
-        require_once $configFile;
+        include_once $configFile;
         break;
     }
 }
 if ($apiToken === null) {
     fwrite(STDERR, "API token is not set\n");
-    fwrite(STDERR, "Configuration files tried:\n " . implode("\n ", $configFiles) . "\n");
+    fwrite(
+        STDERR,
+        "Configuration files tried:\n " . implode("\n ", $configFiles) . "\n"
+    );
     exit(2);
 }
 
@@ -66,7 +69,14 @@ if ($movies->total_results == 0) {
     do {
         fwrite(STDERR, sprintf("Found %d movies\n", $movies->total_results));
         foreach ($movies->results as $key => $movie) {
-            fwrite(STDERR, sprintf("[%2d] %s\n", $key + ($page -1) * $itemsPerPage, $movie->title));
+            fwrite(
+                STDERR,
+                sprintf(
+                    "[%2d] %s\n",
+                    $key + ($page -1) * $itemsPerPage,
+                    $movie->title
+                )
+            );
         }
         if ($page > 1) {
             fwrite(STDERR, "p: previous page\n");
@@ -246,7 +256,8 @@ if ($downloadImages) {
         $size = $tmdbConfig->images->backdrop_sizes[
             array_key_last($tmdbConfig->images->backdrop_sizes)
         ];
-        $url = $tmdbConfig->images->secure_base_url . $size . $details->backdrop_path;
+        $url = $tmdbConfig->images->secure_base_url
+            . $size . $details->backdrop_path;
         $imagePath = $outdir
             . 'backdrop.' . pathinfo($details->poster_path, PATHINFO_EXTENSION);
         if (!file_exists($imagePath)) {
