@@ -1,3 +1,8 @@
 <?php
+/**
+ * Copy that file to "tmdb2mkvtags.config.php" and adjust it.
+ *
+ * Get the "API token v4" from https://www.themoviedb.org/settings/api
+ */
 $apiToken = 'FIXME';
 ?>
