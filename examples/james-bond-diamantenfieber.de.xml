@@ -1,6 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE Tags SYSTEM "matroskatags.dtd">
 <Tags>
+ <!--Collection information-->
+ <Tag>
+  <Targets>
+   <TargetType>70</TargetType>
+  </Targets>
+  <Simple>
+   <Name>TITLE</Name>
+   <String>James Bond Filmreihe</String>
+   <TagLanguage>de</TagLanguage>
+  </Simple>
+ </Tag>
+ <!--Movie information-->
  <Tag>
   <Targets>
    <TargetType>50</TargetType>
@@ -8,16 +20,6 @@
   <Simple>
    <Name>TITLE</Name>
    <String>James Bond 007 - Diamantenfieber</String>
-   <TagLanguage>de</TagLanguage>
-  </Simple>
-  <Simple>
-   <Name>TITLE</Name>
-   <String>Diamonds Are Forever</String>
-   <TagLanguage>en</TagLanguage>
-  </Simple>
-  <Simple>
-   <Name>SUBTITLE</Name>
-   <String></String>
    <TagLanguage>de</TagLanguage>
   </Simple>
   <Simple>
@@ -55,6 +57,14 @@
   <Simple>
    <Name>IMDB</Name>
    <String>tt0066995</String>
+  </Simple>
+  <Simple>
+   <Name>ORIGINAL</Name>
+   <Simple>
+    <Name>TITLE</Name>
+    <String>Diamonds Are Forever</String>
+    <TagLanguage>en</TagLanguage>
+   </Simple>
   </Simple>
   <Simple>
    <Name>ACTOR</Name>
