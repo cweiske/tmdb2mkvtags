@@ -11,7 +11,8 @@ __ https://www.themoviedb.org/
 Usage
 =====
 
-1. Copy ``tmdb2mkvtags.config.php.dist`` to ``tmdb2mkvtags.config.php`` and add your API token
+1. Copy ``tmdb2mkvtags.config.php.dist`` to ``tmdb2mkvtags.config.php`` and add your API token.
+
    Supported configuration file directories:
 
    1. Same directory as ``tmdb2mkvtags.php``
