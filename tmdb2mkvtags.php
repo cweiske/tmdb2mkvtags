@@ -72,9 +72,10 @@ if ($movies->total_results == 0) {
             fwrite(
                 STDERR,
                 sprintf(
-                    "[%2d] %s\n",
+                    "[%2d] %s %s\n",
                     $key + ($page -1) * $itemsPerPage,
-                    $movie->title
+                    $movie->title,
+                    $movie->release_date
                 )
             );
         }
